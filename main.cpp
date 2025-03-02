@@ -6,6 +6,7 @@
 #include "bulders/builderText.cpp"
 #include "bulders/builderMD.cpp"
 #include "bulders/builderHTML.cpp"
+#include "bulders/builderReST.cpp"
 
 using namespace std;
 
@@ -32,6 +33,13 @@ int main() {
     samira.changeBuilder(djamshut);
     samira.makeSite();
     f.open("output/samira.html");
+    f << djamshut->getResult() << endl;
+    f.close();
+
+    djamshut = new BuilderReST;
+    samira.changeBuilder(djamshut);
+    samira.makeSite();
+    f.open("output/samira.rst");
     f << djamshut->getResult() << endl;
     f.close();
 
